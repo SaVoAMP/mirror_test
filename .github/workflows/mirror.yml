@@ -22,6 +22,10 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan github.com >> ~/.ssh/known_hosts
 
+      - name: test checkout
+        run: |
+          ls -la
+
       - name: Set up Git
         run: |
           git config --global user.name 'github-actions[bot]'
@@ -30,5 +34,10 @@ jobs:
         env:
           GIT_SSH_COMMAND: 'ssh -i ~/.ssh/id_ed25519'
         run: |
-          git remote add public git@github.com:SaVoAMP/mirror_test.git
-          git push -u public main
+          ssh -T git@github.com
+          git remote set-url origin git@github.com:SaVoAMP/mirror_test.git
+          git push origin main --force
+
+      - name: check git log
+        run: |
+          git log -p -1
