@@ -36,7 +36,7 @@ jobs:
         run: |
           ssh -T git@github.com || true
           git remote set-url origin git@github.com:SaVoAMP/mirror_test.git
-          git push origin main --force
+          git push origin main --force || true
 
       - name: check git log
         run: |
