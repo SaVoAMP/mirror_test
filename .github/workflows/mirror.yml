@@ -31,4 +31,4 @@ jobs:
           GIT_SSH_COMMAND: 'ssh -i ~/.ssh/id_ed25519'
         run: |
           git remote add public git@github.com:SaVoAMP/mirror_test.git
-          git push public main --force
+          git push -u public main --all
