@@ -34,7 +34,7 @@ jobs:
         env:
           GIT_SSH_COMMAND: 'ssh -i ~/.ssh/id_ed25519'
         run: |
-          ssh -T git@github.com
+          - ssh -T git@github.com
           git remote set-url origin git@github.com:SaVoAMP/mirror_test.git
           git push origin main --force
 
