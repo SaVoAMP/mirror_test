@@ -7,6 +7,7 @@ on:
 
 jobs:
   publish:
+    if: github.repository == 'SaVoAMP/mirror_test_private'
     runs-on: ubuntu-latest
 
     steps:
